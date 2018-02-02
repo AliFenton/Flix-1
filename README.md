@@ -2,16 +2,16 @@
 
 **Flix** is a movies app using the [The Movie Database API](http://docs.themoviedb.apiary.io/#).
 
-Time spent: **X** hours spent in total
+Time spent: **3** hours spent in total
 
 ## User Stories
 
 The following **required** user stories are complete:
 
-- [ ] User sees app icon in home screen and styled launch screen (+1pt)
-- [ ] User can scroll through a list of movies currently playing in theaters from The Movie DB API (+5pt)
-- [ ] User can "Pull to refresh" the movie list (+2pt)
-- [ ] User sees a loading state while waiting for the movies to load (+2pt)
+- [x] User sees app icon in home screen and styled launch screen (+1pt)
+- [x] User can scroll through a list of movies currently playing in theaters from The Movie DB API (+5pt)
+- [x] User can "Pull to refresh" the movie list (+2pt)
+- [x] User sees a loading state while waiting for the movies to load (+2pt)
 
 The following **optional** user stories are implemented:
 
@@ -28,24 +28,24 @@ The following **additional** user stories are implemented:
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
-1.
-2.
+1. I would like to discuss with my peers a better way to implement the activity indicator.
+2. I would also like to discuss their views regarding the use of threads and delaying functions.
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://imgur.com/a/v0yRD.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+I had two main challenges while working on this app. The first involved the unwanted automatic height resizing of my table view cells. This was an easy fix but my unfamiliarity with the UI options meant I did noot find the solution until later. The second challenge was finding a way to show the activity indicator before the images loaded. This was because fetching the movies happened so quickly that it did not give the UI enough time to display the activity indicator.
 
 ## License
 
-Copyright [yyyy] [name of copyright owner]
+Copyright 2018 Emily Garcia
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
