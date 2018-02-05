@@ -11,31 +11,20 @@ import AlamofireImage
 
 class NowPlayingViewController: UIViewController, UITableViewDataSource {
     
-    
-    
     @IBOutlet weak var tableView: UITableView!
     var movies: [[String: Any]] = []
     var refreshControl: UIRefreshControl!
-    
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.activityIndicator.startAnimating()
         refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(NowPlayingViewController.didPullToRefresh(_:) ), for: . valueChanged)
+        
         didPullToRefresh(refreshControl)
-        
         tableView.insertSubview(refreshControl, at: 0)
-        
         tableView.dataSource = self
-        
-        self.activityIndicator.startAnimating()
-        DispatchQueue.global(qos: .background).async {
-            self.fetchMovies()
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
-                self.activityIndicator.stopAnimating()
-            })
-        }
     }
     @objc func didPullToRefresh(_ refreshControl:  UIRefreshControl){
         fetchMovies()
@@ -54,13 +43,15 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
                 
                 // TODO: Get the array of movies
                 let movies = dataDictionary["results"] as! [[String: Any]]
+                
+                // Store the movies in a property to use elsewhere
                 self.movies = movies
+                // Reload your table view data
                 self.tableView.reloadData()
-                self.refreshControl.endRefreshing() 
-                // TODO: Store the movies in a property to use elsewhere
-                // TODO: Reload your table view data
+                self.refreshControl.endRefreshing()
                 
             }
+            self.activityIndicator.stopAnimating()
         }
         task.resume()
     }
